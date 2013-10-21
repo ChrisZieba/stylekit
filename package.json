@@ -1,0 +1,15 @@
+{
+	"name": "stylekit",
+	"version": "0.6.5",
+	"author": "Chris Zieba <zieba.chris@gmail.com>",
+	"description": "Generate PDF and RTF documents from an ejs template, and json answer set."
+	"dependencies": {
+ 		"ejs": ">=0.8.2",
+ 		"moment": ">=1.7.2",
+ 		"accounting": ">=0.3.2"
+ 	},
+	"license": "MIT",
+ 	"engines": {
+		"node": ">=0.8"
+	}
+}
