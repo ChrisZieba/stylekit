@@ -1,3 +1,6 @@
-/generated/
-/answers/
-/stylesheets/
+generated/*
+answers/*
+stylesheets/*
+node_modules/*
+config.js
+Gruntfile.js
