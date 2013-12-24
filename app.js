@@ -66,11 +66,9 @@ var stylekit = (function () {
 		build: function () {
 			// check if the answers file exists
 			fs.readFile(config.loc.answers + process.argv[2], 'utf8', function (err, answers) { 
-
 				if (err) throw err;
 
 				fs.readFile(config.loc.stylesheets + process.argv[4], 'utf8', function (err, data) {
-
 					if (err) throw err;
 
 					var stylesheet, i;
@@ -107,7 +105,6 @@ var stylekit = (function () {
 					// this is where we write the temp file..a generated .fo or .fdf file.. only do this if the style sheet was generteated
 					// this might be a loop for something like the sched of parties, which depends on how many parties are added in the interview
 					fs.writeFile(config.loc.tmp + now + '.fo', stylesheet, function (err) {
-
 						var cmd;
 
 						if (err) throw err;
@@ -121,11 +118,6 @@ var stylekit = (function () {
 							// this runs the fop build command with the location specific to eitehr prod or dev
 							cmd = spawn(config.loc.fop, ['-fo', config.loc.tmp + now + '.fo', '-' + process.argv[5], config.loc.generated + process.argv[6]]);
 						}
-						
-						cmd.stdout.on('data', function (data) {
-							//console.log(data);
-							//files.push(out_directory + out);
-						});
 
 						cmd.stderr.on('data', function (data) {
 							console.log('stderr: ' + data);
@@ -134,8 +126,7 @@ var stylekit = (function () {
 						cmd.on('exit', function (code) {
 							if (code !== 0) {
 								// the stylesheet never finished
-								callback('The stylesheet could not be processed.');
-
+								console.log('The stylesheet could not be processed.');
 							} else {
 								console.log('Success. Exit Code 0');
 							}
@@ -155,8 +146,3 @@ if (process.argv.length !== 7) {
 	// Main()
 	stylekit.build();	
 }
-
-
-
-
-
