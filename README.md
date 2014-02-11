@@ -8,7 +8,7 @@ Created and maintained by [Chris Zieba](http://chriszieba.com). This project is 
 
 Stylkit comes with a configuration file ``config.js``. This can be used to set the location of the Apache FOP executable, as well as the directory location for inputs and generated files.
 
-The directory ``generated`` must be writable.
+The directory ``generated`` must be writable. Stylekit looks for stylesheets and pdf_forms in the `stylesheets` directory, so it must exist and be writable.
 
 ## Example JSON Data Set
 
@@ -45,6 +45,8 @@ Stylekit comes with some helper functions that are passed into the template, whi
 ## Dependencies
 
 Stylekit requires [Apache FOP](http://xmlgraphics.apache.org/fop/), and [nodejs](http://nodejs.org/).
+
+If you are generating Fillable PDF Forms, then you need to have [PDFTK Server](http://www.pdflabs.com/tools/pdftk-server/) installed and on your path. 
 
 ## Usage
 

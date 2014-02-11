@@ -108,12 +108,11 @@ var stylekit = (function () {
 						var cmd;
 
 						if (err) throw err;
-
+						
 						// check to see what the output is and use the corresponding doc processor
 						if (process.argv[5] === 'pdf_form') {
 							// this will use pdftk to create a pdf that is filled
-							//cmd = spawn('pdftk', [base_location + deliverable.input.form.path, 'fill_form', base_location + tmp_directory + tmp, 'output', base_location + out_directory  + out]);
-							//spawn('pdftk', ['-fo', __dirname + 'fill_form' + now + '.fo', '-' + process.argv[5], __dirname + '/generated/' + process.argv[6]]);
+							cmd = spawn('pdftk', [config.loc.stylesheets + process.argv[3], 'fill_form', config.loc.tmp + now + '.fo', 'output', config.loc.generated + process.argv[6]]);
 						} else {
 							// this runs the fop build command with the location specific to eitehr prod or dev
 							cmd = spawn(config.loc.fop, ['-fo', config.loc.tmp + now + '.fo', '-' + process.argv[5], config.loc.generated + process.argv[6]]);
