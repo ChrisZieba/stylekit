@@ -1,6 +1,6 @@
 {
 	"name": "stylekit",
-	"version": "0.6.5",
+	"version": "0.6.6",
 	"author": "Chris Zieba <zieba.chris@gmail.com>",
 	"description": "Generate PDF and RTF documents from an ejs template, and json answer set."
 	"dependencies": {
